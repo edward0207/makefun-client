@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>make.fun · live bounty board</title>
+<meta name="description" content="A read-only client for make.fun: the live bounty board, each bounty's rules and rewards, its leaderboard, and the people behind the entries.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0d10">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles/core.css">
+<script type="module" src="main.js"></script>
+</head>
+<body>
+<a class="skip" href="#screen">Skip to the content</a>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="brand" href="#/">
+      <svg class="brand__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6.5 20v-5.5"/><path d="M12 20V8"/><path d="M17.5 20v-9"/></svg>
+      <span class="brand__name">make<span class="brand__dot">.</span>fun</span>
+      <span class="brand__tag">bounty board</span>
+    </a>
+    <p class="pulse"><span class="pulse__dot" aria-hidden="true"></span><span class="pulse__label">live</span> <time id="clock">··:··:··</time> UTC</p>
+  </div>
+</header>
+
+<main id="screen" class="screen" tabindex="-1" aria-busy="true">
+  <div class="boot">
+    <div class="skel skel--line" style="width:11rem;height:2rem"></div>
+    <div class="boot__grid">
+      <div class="skel skel--card"></div>
+      <div class="skel skel--card"></div>
+      <div class="skel skel--card"></div>
+      <div class="skel skel--card"></div>
+      <div class="skel skel--card"></div>
+      <div class="skel skel--card"></div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <p>Read-only client. Every figure comes straight from <a href="https://make.fun/api/openapi.json">make.fun's public API</a>; nothing is written back and nothing is loaded from another origin.</p>
+  <p class="foot__links"><a href="#/">Board</a> <a href="https://make.fun">make.fun</a></p>
+</footer>
+
+<noscript><p class="notice">This client reads make.fun's API in the browser, so it needs JavaScript. The same data is at <a href="https://make.fun">make.fun</a>.</p></noscript>
+</body>
+</html>

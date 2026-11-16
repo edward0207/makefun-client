@@ -1,0 +1,56 @@
+/* The leaderboard: the leader in full, then a table that grows as it is scrolled. */
+
+.lhead {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: var(--s4); padding-bottom: var(--s4); margin-bottom: var(--s4);
+  border-bottom: 1px solid var(--line);
+}
+.lhead h1 { font-size: 1.5rem; }
+.lhead__note { color: var(--ink-dim); font-size: 0.8125rem; margin-top: var(--s1); }
+.lhead__note strong { color: var(--ink); font-weight: 560; }
+.lhead__switches { display: flex; flex-wrap: wrap; gap: var(--s2); }
+
+.spotlight { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--s3); margin: var(--s3) 0 var(--s5); }
+
+.leader { padding: var(--s4); display: grid; gap: var(--s3); align-content: start; border-color: color-mix(in oklab, var(--money) 26%, var(--line)); }
+.leader__top { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.leader__who { display: flex; align-items: center; gap: var(--s3); }
+.leader__names strong { display: block; font-size: 1.125rem; letter-spacing: -0.02em; }
+.leader__handle { color: var(--ink-faint); font-size: 0.8125rem; font-family: var(--figures); letter-spacing: -0.01em; }
+.leader__entry {
+  color: var(--ink-dim); font-size: 0.875rem; line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.leader__figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: var(--s4); padding-top: var(--s3); border-top: 1px solid var(--line-soft); }
+.leader__link { color: var(--money); font-size: 0.8125rem; font-weight: 540; }
+
+.chasers { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); align-content: start; }
+.chaser { display: grid; gap: var(--s2); padding: var(--s3) var(--s4); }
+.chaser .pill { justify-self: start; }
+.chaser__who { display: flex; align-items: center; gap: var(--s2); font-size: 0.9375rem; }
+.chaser__entry {
+  color: var(--ink-dim); font-size: 0.8125rem; line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.table--top td, .table--rest td { font-size: 0.8125rem; }
+.table--top th, .table--top td { padding-inline: var(--s2); }
+.table .rank { width: 3.5rem; color: var(--ink-faint); }
+.table tr.is-podium .rank { color: var(--money); font-weight: 600; }
+.table .is-rank { color: var(--money); font-weight: 600; }
+.table th.is-rank { color: var(--money); }
+.table .entry {
+  max-width: 19rem; color: var(--ink-dim);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.who { display: inline-flex; align-items: center; gap: var(--s2); white-space: nowrap; }
+.who:hover { color: var(--money); }
+
+@media (max-width: 1000px) {
+  .spotlight { grid-template-columns: 1fr; }
+  .chasers { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .chasers { grid-template-columns: 1fr; }
+  .table .entry { max-width: 12rem; }
+}

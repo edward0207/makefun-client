@@ -1,0 +1,60 @@
+/* A bounty's page: the ledger across the top, then the brief beside the rewards. */
+
+@import url("prose.css");
+
+.bhead { display: grid; gap: var(--s2); max-width: 54rem; margin-bottom: var(--s4); }
+.bhead__pills { display: flex; flex-wrap: wrap; gap: var(--s2); margin-bottom: var(--s1); }
+.bhead h1 { font-size: 1.875rem; }
+.bhead__summary { color: var(--ink-dim); font-size: 0.9375rem; line-height: 1.5; max-width: 60rem; }
+.bhead__by { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); color: var(--ink-faint); font-size: 0.8125rem; }
+.bhead__by strong { color: var(--ink-dim); font-weight: 560; }
+.bhead__by code { font-family: var(--figures); font-size: 0.75rem; }
+
+.ledger { display: grid; gap: var(--s4); padding: var(--s4) var(--s5); margin-bottom: var(--s3); }
+.ledger__figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: var(--s5); align-items: start; }
+.ledger__figures .stat__note { color: var(--ink-faint); font-size: 0.75rem; }
+.ledger__clock { display: grid; gap: var(--s2); }
+.ledger__span { display: flex; justify-content: space-between; gap: var(--s4); color: var(--ink-faint); font-size: 0.75rem; font-family: var(--figures); }
+.ledger__bottom {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s4);
+  padding-top: var(--s3); border-top: 1px solid var(--line-soft);
+}
+.podium { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); }
+.podium li { display: flex; align-items: baseline; gap: var(--s2); }
+.podium .label { display: inline; }
+
+.jump { display: flex; flex-wrap: wrap; gap: var(--s2); margin-bottom: var(--s5); }
+
+.columns { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: var(--s6); align-items: start; }
+.columns__rail { display: grid; gap: var(--s4); position: sticky; top: 76px; }
+
+.table--rewards tbody tr.is-podium td { background: color-mix(in oklab, var(--money) 6%, transparent); }
+.table--rewards tbody tr.is-podium td:first-child { color: var(--money); font-weight: 600; }
+
+.phases { list-style: none; padding: 0; display: grid; gap: var(--s3); }
+.phase { padding-left: var(--s4); border-left: 2px solid var(--line); }
+.phase.is-live { border-left-color: var(--money); }
+.phase.is-done { opacity: 0.6; }
+.phase__title { display: flex; align-items: center; gap: var(--s2); font-size: 0.9375rem; }
+.phase__when { color: var(--ink-faint); font-size: 0.75rem; font-family: var(--figures); letter-spacing: -0.01em; margin-bottom: var(--s1); }
+
+.winner {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--s5);
+  padding: var(--s4) var(--s5); margin-bottom: var(--s4);
+  border-color: color-mix(in oklab, var(--money) 30%, var(--line));
+}
+.winner__who { display: flex; align-items: center; gap: var(--s3); }
+.winner__who strong { display: block; font-size: 1rem; }
+.winner__title { color: var(--ink-dim); font-size: 0.8125rem; }
+
+@media (max-width: 1000px) {
+  .columns { grid-template-columns: 1fr; gap: var(--s5); }
+  .columns__rail { position: static; }
+  .bhead h1 { font-size: 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  .ledger { padding: var(--s4); }
+  .ledger__figures { grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: var(--s4); }
+  .panel { padding: var(--s4); }
+}
